@@ -1,0 +1,30 @@
+{
+  "description": "agent-wiki: загрузка памяти проекта и напоминание сохранить итог",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "{{PY}} \"$(git rev-parse --show-toplevel)/{{WIKI}}/scripts/hooks/session_start.py\" --agent codex",
+            "statusMessage": "agent-wiki: загрузка памяти проекта",
+            "additionalContextLimit": 8000,
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "{{PY}} \"$(git rev-parse --show-toplevel)/{{WIKI}}/scripts/hooks/stop.py\" --agent codex",
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  }
+}

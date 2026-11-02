@@ -1,0 +1,15 @@
+{
+  "raw_base_url": "",
+  "default_branch": "main",
+  "submodule_path": ".agent-wiki",
+  "index_max_lines": 80,
+  "session_start": {
+    "recent_sessions": 3,
+    "include_standards_index": true,
+    "include_context_index": true,
+    "include_gotchas": true,
+    "auto_update": false,
+    "update_timeout": 10
+  },
+  "stop_reminder": true
+}

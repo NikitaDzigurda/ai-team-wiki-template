@@ -1,0 +1,27 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "{{PY}} \"$CLAUDE_PROJECT_DIR/{{WIKI}}/scripts/hooks/session_start.py\" --agent claude",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "{{PY}} \"$CLAUDE_PROJECT_DIR/{{WIKI}}/scripts/hooks/stop.py\" --agent claude",
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  }
+}
